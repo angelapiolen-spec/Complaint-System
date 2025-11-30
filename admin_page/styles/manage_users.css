@@ -15,6 +15,7 @@ body {
     padding: 40px;
     max-width: 1600px;
     margin: 0 auto;
+    animation: fadeIn 0.5s ease forwards;
 }
 
 .greeting {
@@ -184,14 +185,9 @@ body {
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    animation: slideUp 0.3s ease;
+    animation: fadeIn 0.5s ease forwards;
 }
 
-/* Animations */
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
 /* Modal Header */
 .modal-header {
@@ -550,11 +546,6 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(50px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInScale {
