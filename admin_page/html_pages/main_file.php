@@ -7,7 +7,7 @@
     <title>Complaint Management System - Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-    <link rel="stylesheet" href="main_navbar.css">
+    <link rel="stylesheet" href="..//styles/main_navbar.css">
 </head>
 
 <body>
@@ -20,13 +20,13 @@
             <span class="logo-text-desk">Desk</span>
         </div>
 
-        <!-- Navigation Links -->
-        <nav class="nav-menu" id="navMenu">
-            <a href="#dashboard" class="nav-link active" onclick="navigateTo(event, 'dashboard')">Dashboard</a>
-            <a href="#manage_complaints" class="nav-link" onclick="navigateTo(event, 'manage_complaints')">Manage Complaints</a>
-            <a href="#manage_users" class="nav-link" onclick="navigateTo(event, 'manage_users')">Manage Users</a>
-            <a href="#account_settings" class="nav-link" onclick="navigateTo(event, 'account_settings')">Account Settings</a>
+        <nav class="nav-menu">
+            <a href="../html_pages/dashboard.php" class="nav-link">Dashboard</a>
+            <a href="../html_pages/manage_complaints.php" class="nav-link">Manage Complaints</a>
+            <a href="../html_pages/manage_users.php" class="nav-link">Manage Users</a>
+            <a href="http://localhost/Complaint-System/admin_page/html_pages/admin_accountsettings.php" class="nav-link">Account Settings</a>
         </nav>
+
 
         <!-- Hamburger Menu -->
         <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
@@ -60,10 +60,10 @@
 
             // Define file paths for each page
             const files = {
-                'dashboard': 'html_pages/dashboard.html',
-                'manage_complaints': 'html_pages/manage_complaints.html',
-                'manage_users': 'html_pages/manage_users.html',
-                'account_settings': 'html_pages/admin_accountsettings.html'
+            dashboard: '../html_pages/dashboard.php',
+            manage_complaints: '../html_pages/manage_complaints.php',
+            manage_users: '../html_pages/manage_users.php',
+            account_settings: '../html_pages/admin_accountsettings.php'
             };
 
             // Load the selected HTML page

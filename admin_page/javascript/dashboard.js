@@ -1,5 +1,6 @@
 // pages/dashboard.js - Dashboard page logic
 
+
 function initDashboard() {
     const dashboardPage = document.getElementById('dashboard-page');
     
