@@ -1,11 +1,11 @@
 <?php
-// ---------------- HIDE ERRORS IN PRODUCTION ----------------
-ini_set('display_errors', 0);
-error_reporting(E_ALL & ~E_NOTICE);
+// ---------------- DISPLAY ERRORS FOR DEBUGGING ----------------
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 // ---------------- START SESSION ----------------
 session_start();
-require "db_config.php";
+require "../db_config.php";
 
 // ---------------- CHECK REQUEST METHOD ----------------
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -22,9 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
+    // Validate email format
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "<script>alert('Invalid email format'); window.location.href='login.php';</script>";
+        exit;
+    }
+
     // Check if phone number is 11 digits
     if (!preg_match('/^\d{11}$/', $phone_number)) {
-        echo "<script>alert('Phone number must be 11 digits'); window.location.href='login.php';</script>";
+        echo "<script>alert('Phone number must be exactly 11 digits'); window.location.href='login.php';</script>";
         exit;
     }
 
@@ -46,6 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         sqlsrv_close($conn);
         exit;
     }
+    sqlsrv_free_stmt($checkStmt);
 
     // ---------------- CHECK IF ROOM NUMBER EXISTS ----------------
     $checkRoomSql = "SELECT user_id FROM users WHERE room_number = ?";
@@ -58,11 +65,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (sqlsrv_fetch_array($checkRoomStmt, SQLSRV_FETCH_ASSOC)) {
         echo "<script>alert('Room number already registered'); window.location.href='login.php';</script>";
-        sqlsrv_free_stmt($checkStmt);
         sqlsrv_free_stmt($checkRoomStmt);
         sqlsrv_close($conn);
         exit;
     }
+    sqlsrv_free_stmt($checkRoomStmt);
 
     // ---------------- INSERT NEW USER ----------------
     $insertSql = "INSERT INTO users (full_name, email, password, phone_number, room_number, user_type) 
@@ -79,8 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>alert('Account created successfully! Please login.'); window.location.href='login.php';</script>";
     
     // ---------------- FREE RESOURCES ----------------
-    sqlsrv_free_stmt($checkStmt);
-    sqlsrv_free_stmt($checkRoomStmt);
     sqlsrv_free_stmt($insertStmt);
     sqlsrv_close($conn);
     exit;

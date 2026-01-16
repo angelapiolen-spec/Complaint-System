@@ -1,11 +1,11 @@
 <?php
-// ---------------- HIDE ODBC INFO MESSAGES ----------------
+// ---------------- DISPLAY ERRORS FOR DEBUGGING ----------------
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 // ---------------- START SESSION ----------------
 session_start();
-require "../db_config.php";  // Adjust path kung nasaan ang db_config.php
+require "../db_config.php";
 
 // ---------------- CHECK REQUEST METHOD ----------------
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
