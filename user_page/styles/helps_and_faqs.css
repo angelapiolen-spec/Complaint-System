@@ -48,3 +48,119 @@ body {
 /* ──────────────── WALA KA NANG GAGALAWIN SA TAAS AH ──────────────── */
 
 
+
+
+/* ──────────────── HELP & FAQS PAGE STYLES ──────────────── */
+
+/* FAQs Container */
+.faqs-container {
+    background-color: white;
+    border-radius: 16px;
+    padding: 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    animation: fadeInScale 0.6s ease forwards;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #3B82F6;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* FAQ Items */
+.faq-item {
+    background-color: #f8fbff;
+    border: 1px solid #d1e3f8;
+    border-radius: 12px;
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+}
+
+.faq-question {
+    font-size: 18px;
+    font-weight: 600;
+    color: #3B82F6;
+    margin-bottom: 12px;
+}
+
+.faq-answer {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    text-align: justify;
+}
+
+/* Help Card - Separate Card */
+.help-card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px 50px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+    text-align: center;
+    animation: fadeInScale 0.6s ease forwards;
+    animation-delay: 0.1s;
+}
+
+.help-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f5a623;
+    margin-bottom: 30px;
+}
+
+.help-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.help-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.help-icon {
+    font-size: 18px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faqs-container,
+    .help-card {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .faq-item {
+        padding: 20px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+    }
+
+    .faq-answer {
+        font-size: 14px;
+    }
+
+    .help-title {
+        font-size: 22px;
+    }
+}
