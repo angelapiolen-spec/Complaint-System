@@ -1,0 +1,210 @@
+/* ========================================
+   MANAGE USERS - MODAL FIX
+   ======================================== */
+
+/* Modal Overlay - MAXIMUM z-index to appear above everything */
+.modal-overlay {
+    display: none;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: rgba(0, 0, 0, 0.85) !important; /* Very dark background */
+    backdrop-filter: blur(10px) !important; /* Strong blur */
+    -webkit-backdrop-filter: blur(10px) !important; /* Safari support */
+    z-index: 999999 !important; /* MAXIMUM z-index */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+/* Modal Container */
+.modal {
+    background: white !important;
+    border-radius: 16px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6) !important;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative !important;
+    z-index: 9999999 !important; /* ABSOLUTE HIGHEST */
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 24px 24px 16px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111827;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 8px 0;
+}
+
+.modal-title .material-symbols-rounded {
+    color: #3b82f6;
+    font-size: 24px;
+}
+
+.modal-subtitle {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 24px;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-group label .material-symbols-rounded {
+    font-size: 18px;
+    color: #6b7280;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Error Message */
+.error-message {
+    display: none;
+    padding: 12px;
+    background: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: #dc2626;
+    font-size: 14px;
+    margin-top: 16px;
+}
+
+.error-message.active {
+    display: block;
+}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 16px 24px 24px 24px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+/* Buttons */
+.submit-btn,
+.cancel-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    border: none;
+}
+
+.submit-btn {
+    background: #3b82f6;
+    color: white;
+}
+
+.submit-btn:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.cancel-btn {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.cancel-btn:hover {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+/* Add New Admin Button */
+.add-admin-btn {
+    padding: 12px 24px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.add-admin-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.add-admin-btn .material-symbols-rounded {
+    font-size: 20px;
+}
+
+/* Ensure main content is below modal */
+.main-content {
+    position: relative;
+    z-index: 1;
+}
